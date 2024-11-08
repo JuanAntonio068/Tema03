@@ -19,11 +19,14 @@ public class Problema07 {
 		for (int i = 0; i < media.length;i++) {
 			
 			//Preguntamos al usuario
-			System.out.println("Dime la temperatura media de cada mes de un año");
+			System.out.println("Dime la temperatura media de un mes del año");
 			temperatura = sc.nextDouble();
 			
 			media[i] = temperatura;
+			
 		}
+	
+		sc.close();
 	}
 
 }
