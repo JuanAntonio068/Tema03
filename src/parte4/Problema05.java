@@ -28,7 +28,11 @@ public class Problema05 {
 		System.out.println("Dime un valor entre 1 y 5");
 		valor = sc.nextInt();
 		
+		//Llamamos la función
 		System.out.println(Arrays.toString(buscarTodos(t, valor)));
+		
+		//Cerramos el escaner
+		sc.close();
 	}
 
 	static int[] buscarTodos (int t[], int valor) {
@@ -38,9 +42,8 @@ public class Problema05 {
 		
 		//Bucle para buscar en la tabla 
 		for (int i = 0; i < index.length; i++) {
-			
-			index[i] = i;
-			
+		
+			index[i] = 1;
 		}
 		return index;
 		

@@ -45,14 +45,13 @@ public class Problema03 {
 		// Bucle para asignar los valores a cada elemento
 		for (int i = 0; i < pares.length; i++) {
 
-			par = rand.nextInt(2, fin + 1);
+			do {
 
-			// Iniciamos la comparación
-			if (par % 2 == 0) {// El número es par
-				pares[i] = par;
-			} else {// El número no es par
-				pares[i] = par - 1;
-			}
+				par = rand.nextInt(2, fin + 1);
+
+			} while (par % 2 != 0);
+
+			pares[i] = par;
 		}
 
 		// Devolvemos la tabla
