@@ -6,6 +6,9 @@ public class Problema03 {
 
 	public static void main(String[] args) {
 
+		// Tabla donde se van a guardar los pares
+		int pares[];
+
 		// Variable donde vamos a preguntar la longitud
 		int longitud;
 
@@ -23,8 +26,11 @@ public class Problema03 {
 		System.out.println("Dime el número final para la tabla");
 		fin = sc.nextInt();
 
-		// Llamamos a la funcion
-		System.out.println(Arrays.toString(rellenaPares(longitud, fin)));
+		// Llamamos a la función
+		pares = rellenaPares(longitud, fin);
+
+		// Imprimimos el resultado
+		System.out.println(Arrays.toString(pares));
 
 		// Cerramos el escaner
 		sc.close();

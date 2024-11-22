@@ -51,8 +51,11 @@ public class Problema06 {
 
 	static int[] suma(int t[], int numElementos) {
 
+		// Llamamos a la función
+		int length = length(t, numElementos);
+
 		// Tabla donde se van a ir sumando los elementos
-		int suma[] = new int[height(t, numElementos)];
+		int suma[] = new int[length];
 
 		// Varaible para ir contando
 		int cont = 0;
@@ -80,14 +83,13 @@ public class Problema06 {
 		return suma;
 	}
 
-	static int height(int t[], int numElementos) {
+	static int length(int t[], int numElementos) {
 
 		// Variable donde se va a guardar la longitud de la tabla
-		int height;
+		int length;
+		length = t.length - numElementos + 1;
 
-		height = t.length - numElementos + 1;
-
-		return height;
+		return length;
 
 	}
 }

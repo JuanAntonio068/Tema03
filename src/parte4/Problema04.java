@@ -6,6 +6,9 @@ public class Problema04 {
 
 	public static void main(String[] args) {
 
+		//Variable donde se va a guardar el índice encontrado
+		int index;
+		
 		// Tabla donde se va a buscar el valor
 		int t[] = { 2, 5, 20, 29, 30, 38, 40, 45, 50 };
 
@@ -19,8 +22,11 @@ public class Problema04 {
 		System.out.println("Dime el valor que buscas");
 		clave = sc.nextInt();
 
-		// Llamamos a la función
-		System.out.println(buscar(t, clave));
+		//Llamamos a la función
+		index = buscar(t, clave);
+		
+		// Imprimimos el resultado
+		System.out.println(index);
 
 		// Cerramos el escaner
 		sc.close();
