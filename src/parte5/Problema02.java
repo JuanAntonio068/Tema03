@@ -46,7 +46,8 @@ public class Problema02 {
 			}
 			System.out.println(" ");
 		}
-
+		// Cerramos el escaner
+		sc.close();
 	}
 
 	static int[][] transposición(int[][] matriz) {

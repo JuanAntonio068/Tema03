@@ -13,7 +13,8 @@ public class Problema03 {
 		int matriz[][] = construirMatriz();
 
 		simetrica = verificacion(matriz, 0, 0);
-		
+
+		System.out.println((simetrica) ? "La matriz es simétrica" : "La matriz no es simétrica");
 	}
 
 	static int[][] construirMatriz() {
@@ -58,27 +59,15 @@ public class Problema03 {
 
 	static boolean verificacion(int[][] matriz, int filas, int columnas) {
 
-		// Variable para verificar si la matriz es simétrica
-		boolean simetrica;
-
-		// Matriz traspuesta
-		int traspuesta[][] = new int[columnas][filas];
-
 		// Bucle para rellenar la matriz traspuesta
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[0].length; j++) {
+				if (matriz[i][j] != matriz[j][i]) {
+					return false;
+				}
 
-				traspuesta[j][i] = matriz[i][j];
 			}
 		}
-
-		// Iniciamos la comparación
-		if (Arrays.equals(matriz, traspuesta)) {// La matriz es simétrica
-			simetrica = true;
-		} else {// La matriz no es simétrica
-			simetrica = false;
-		}
-		
-		return simetrica;
+		return true;
 	}
 }
