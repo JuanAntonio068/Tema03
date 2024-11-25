@@ -1,7 +1,5 @@
 package parte3;
 
-import java.util.Arrays;
-
 public class Problema01 {
 
 	public static void main(String[] args) {

@@ -42,10 +42,13 @@ public class Problema03 {
 
 				System.out.print(tabla[i][j] + "\t");
 			}
-			
-			//Salto de linea
+
+			// Salto de linea
 			System.out.println(" ");
 		}
 
+		// Cerramos el escaner
+		sc.close();
 	}
+
 }
