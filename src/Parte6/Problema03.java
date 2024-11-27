@@ -38,7 +38,7 @@ public class Problema03 {
 		}
 
 		// Llamamos a la función
-		matriz = desordenarMatriz(matriz);
+		desordenarMatriz(matriz);
 
 		// Bucle para imprimir la matriz
 		for (int[] fila : matriz) {
@@ -52,7 +52,7 @@ public class Problema03 {
 		sc.close();
 	}
 
-	static int[][] desordenarMatriz(int[][] matriz) {
+	public static void desordenarMatriz(int[][] matriz) {
 
 		// Variable para guardar una posicion aleatoria en las filas
 		int randomPosition1;
@@ -68,16 +68,15 @@ public class Problema03 {
 
 		// Bucle para desordenar la matriz
 		for (int i = 0; i < matriz.length; i++) {
-			
+
 			randomPosition1 = rand.nextInt(0, matriz.length);
 			for (int j = 0; j < matriz[0].length; j++) {
-				
+
 				randomPosition2 = rand.nextInt(0, matriz[0].length);
 				temp = matriz[i][j];
 				matriz[i][j] = matriz[randomPosition1][randomPosition2];
 				matriz[randomPosition1][randomPosition2] = temp;
 			}
 		}
-		return matriz;
 	}
 }

@@ -29,17 +29,17 @@ public class Problema02 {
 			tabla[i] = sc.nextInt();
 
 		}
-		//Llamamos a la función
-		tabla = desordenarTabla(tabla);
-		
-		//Impriimos el resultado
+		// Llamamos a la función
+		desordenarTabla(tabla);
+
+		// Impriimos el resultado
 		System.out.println("La tabla desordenada es: " + Arrays.toString(tabla));
-		
+
 		// Cerrmos el escaner
 		sc.close();
 	}
 
-	static int[] desordenarTabla(int[] tabla) {
+	public static void desordenarTabla(int[] tabla) {
 
 		// Variable para guardar una posicion aleatoria
 		int randomPosition;
@@ -56,7 +56,6 @@ public class Problema02 {
 			tabla[i] = tabla[randomPosition];
 			tabla[randomPosition] = temp;
 		}
-		return tabla;
 	}
 
 }

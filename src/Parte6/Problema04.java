@@ -16,8 +16,14 @@ public class Problema04 {
 		char pieza;
 
 		// Matriz para simular el tablero
-		String tablero[][] = new String[8][8];
+		char tablero[][] = new char[8][8];
 
+		//Bucle para asignar valores predertimados al tablero
+		for (int i = 0; i < tablero.length; i++) {
+			for (int j = 0; j < tablero.length; j++) {
+				tablero[i][j] = '.';
+			}
+		}
 		// Declaramos el escaner
 		Scanner sc = new Scanner(System.in);
 
@@ -33,137 +39,135 @@ public class Problema04 {
 		System.out.println("Dime la columna donde está la pieza");
 		posColumna = sc.nextInt();
 
-		tablero = movReina(posFila, posColumna, pieza);
+		// Iniciamos la comparación
+		if (pieza == 'T')// La pieza es la torre
+			movTorre(tablero, posFila, posColumna, pieza);
+
+		if (pieza == 'A')// La pieza es el alfil
+			movAlfil(tablero, posFila, posColumna, pieza);
+
+		if (pieza == 'R')// La pieza es la reina
+			movReina(tablero, posFila, posColumna, pieza);
+
+		if (pieza == 'C')// La pieza es el caballo
+			movCaballo(tablero, posFila, posColumna, pieza);
 
 		// Bucle para imprimir la matriz
-		for (String[] filas : tablero) {
-			for (String elemento : filas) {
+		for (char[] filas : tablero) {
+			for (char elemento : filas) {
 				System.out.print(elemento + "\t");
 			}
-			System.out.println(" ");
 			System.out.println(" ");
 		}
 		// Cerramos el escaner
 		sc.close();
 	}
 
-	static String[][] movTorre(int posFila, int posColumna, char pieza) {
-
-		// Matriz donde va a estar el tablero con la torre
-		String torre[][] = new String[8][8];
-
-		// Bucle para asignar el movimiento de la torre
-		for (int i = 0; i < torre.length; i++) {
-			torre[i][posColumna] = "X";
-		}
-		// Bucle para asignar el movimiento de la torre
-		for (int j = 0; j < torre[0].length; j++) {
-			torre[posFila][j] = "X";
-		}
+	private static void movTorre(char[][] tablero, int posFila, int posColumna, char pieza) {
 
 		// Sitio donde está la torre
-		torre[posFila][posColumna] = "T";
+		tablero[posFila][posColumna] = pieza;
 
-		return torre;
+		// Bucle para asignar el movimiento de la torre
+		for (int i = 1; i < tablero.length; i++) {
+
+			// Iniciamos la comparación
+			if (i != posFila) // Estamos en el moviminto vertical
+
+				tablero[i][posColumna] = 'X';
+
+			if (i != posColumna)// Estamos en el movimiento horizontal
+
+				tablero[posFila][i] = 'X';
+		}
 	}
 
-	static String[][] movAlfil(int posFila, int posColumna, char pieza) {
-
-		// Matriz donde va a estar el tablero con el alfil
-		String alfil[][] = new String[8][8];
-
-		// Variable para ir contando las filas
-		int i = posFila;
-
-		// Variable para ir contando las columnas
-		int j = posColumna;
-
-		// Bucles para rellenar la matriz con el movimiento del alfil
-		while (i >= 0) {
-			alfil[i--][j--] = "X";
-		}
-
-		i = posFila;
-		j = posColumna;
-
-		while (i >= 0 && j < alfil.length) {
-			alfil[i--][j++] = "X";
-		}
-		i = posFila;
-		j = posColumna;
-		while (i < alfil.length) {
-			alfil[i++][j--] = "X";
-		}
-		i = posFila;
-		j = posColumna;
-
-		while (i < alfil.length) {
-			alfil[i++][j++] = "X";
-		}
-		i = posFila;
-		j = posColumna;
+	private static void movAlfil(char[][] tablero, int posFila, int posColumna, char pieza) {
 
 		// Sitio donde está el alfil
-		alfil[posFila][posColumna] = "A";
+		tablero[posFila][posColumna] = pieza;
 
-		return alfil;
+		// Bucle para asignar el movimiento del alfil
+		for (int i = 1; i < tablero.length; i++) {
+
+			// Iniciamos la comparación
+			if (posFila + i < tablero.length && posColumna + i < tablero.length)// Estamos en la diagonal de arriba a la
+																				// derecha
+				tablero[posFila + i][posColumna + i] = 'X';
+
+			if (posFila + i < tablero.length && posColumna - i >= 0)// Estamos en la diagonal de abajo a la derecha
+				tablero[posFila + i][posColumna - i] = 'X';
+
+			if (posFila - i >= 0 && posColumna + i < tablero.length)// Estamos en la diagonal de arriba a la izquierda
+				tablero[posFila - i][posColumna + i] = 'X';
+
+			if (posFila - i >= 0 && posColumna - i >= 0)// Estamos en la diagonal de abajo a la izquierda
+				tablero[posFila - i][posColumna - i] = 'X';
+		}
+
 	}
 
-	static String[][] movReina(int posFila, int posColumna, char pieza) {
+	private static void movReina(char[][] tablero, int posFila, int posColumna, char pieza) {
 
-		// Matriz donde va a estar el tablero con la reina
-		String reina[][] = new String[8][8];
 
-		// Variable para ir contando las filas
-		int i = posFila;
 
-		// Variable para ir contando las columnas
-		int j = posColumna;
+		// Bucle para asignar el movimiento diagonal de la reina
+		for (int i = 0; i < tablero.length; i++) {
 
-		// Bucles para rellenar la matriz con el movimineto de la reina
-		while (i >= 0) {
-			reina[i--][j--] = "X";
+			// Iniciamos la comparación
+			if (posFila + i < tablero.length && posColumna + i < tablero.length)// Estamos en la diagonal de arriba a la
+																				// derecha
+				tablero[posFila + i][posColumna + i] = 'X';
+			if (posFila + i < tablero.length && posColumna - i >= 0)// Estamos en la diagonal de abajo a la derecha
+				tablero[posFila + i][posColumna - i] = 'X';
+			if (posFila - i >= 0 && posColumna + i < tablero.length)// Estamos en la diagonal de arriba a la izquierda
+				tablero[posFila - i][posColumna + i] = 'X';
+			if (posFila - i >= 0 && posColumna - i >= 0)// Estamos en la diagonal de abajo a la izquierda
+				tablero[posFila - i][posColumna - i] = 'X';
+
 		}
 
-		i = posFila;
-		j = posColumna;
+		// Bucle para asignar el movimiento horizontal y vertical de la reina
+		for (int i = 0; i < 8; i++) {
 
-		while (i >= 0 && j < reina.length) {
-			reina[i--][j++] = "X";
-		}
-		i = posFila;
-		j = posColumna;
-		while (i < reina.length) {
-			reina[i++][j--] = "X";
-		}
-		i = posFila;
-		j = posColumna;
+			// Iniciamos la comparación
+			if (i != posFila) // Estamos en el moviminto vertical
 
-		while (i < reina.length) {
-			reina[i++][j++] = "X";
-		}
-		i = posFila;
-		j = posColumna;
+				tablero[i][posColumna] = 'X';
 
-		// Bucle para asignar el movimiento de la reina
-		for (int i1 = 0; i1 < reina.length; i1++) {
-			reina[i1][posColumna] = "X";
-		}
-		// Bucle para asignar el movimiento de la reina
-		for (int j1 = 0; j1 < reina[0].length; j1++) {
-			reina[posFila][j1] = "X";
-		}
+			if (i != posColumna)// Estamos en el movimiento horizontal
 
-		// Sitio donde está la reina
-		reina[posFila][posColumna] = "R";
-
-		return reina;
+				tablero[posFila][i] = 'X';
+			
+			// Sitio donde está la reina
+			tablero[posFila][posColumna] = pieza;
+		}
 	}
 
-	static String[][] movCaballo(int posFila, int posColumna, char pieza) {
-		
-		// Matriz donde va a estar el tablero con el caballo
-		String caballo[][] = new String[8][8];
+	private static void movCaballo(char[][] tablero, int posFila, int posColumna, char pieza) {
 
+		// Sitio donde está el caballo
+		tablero[posFila][posColumna] = pieza;
+
+		// Matriz que contiene todas las posibles combinaciones de movimientos del
+		// caballo
+		int[][] movimientos = { { 2, 1 }, { 2, -1 }, { -2, 1 }, { -2, -1 }, { 1, 2 }, { 1, -2 }, { -1, 2 },
+				{ -1, -2 } };
+
+		// Bucle para asignar el movimiento del caballo
+		for (int[] movimiento : movimientos) {
+
+			// Calculamos una nueva fila
+			int nuevaFila = posFila + movimiento[0];
+
+			// Calculamos una nueva columna
+			int nuevaColumna = posColumna + movimiento[1];
+			// Iniciamos la comparación
+			if (nuevaFila >= 0 && nuevaFila < tablero.length && nuevaColumna >= 0 && nuevaColumna < tablero.length) {
+				// Las nuevas coordenadas están dentro del tablero
+				
+				tablero[nuevaFila][nuevaColumna] = 'X';
+			}
+		}
 	}
 }
