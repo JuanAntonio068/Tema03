@@ -28,10 +28,15 @@ public class Problema02 {
 			System.out.println("Dime un número");
 			tabla[i] = sc.nextInt();
 
-			
-			// Cerrmos el escaner
-			sc.close();
 		}
+		//Llamamos a la función
+		tabla = desordenarTabla(tabla);
+		
+		//Impriimos el resultado
+		System.out.println("La tabla desordenada es: " + Arrays.toString(tabla));
+		
+		// Cerrmos el escaner
+		sc.close();
 	}
 
 	static int[] desordenarTabla(int[] tabla) {
@@ -46,7 +51,7 @@ public class Problema02 {
 
 		// Bucle para desordenar la tabla
 		for (int i = 0; i < tabla.length; i++) {
-			randomPosition = rand.nextInt(tabla.length);
+			randomPosition = rand.nextInt(0, tabla.length);
 			temp = tabla[i];
 			tabla[i] = tabla[randomPosition];
 			tabla[randomPosition] = temp;
