@@ -1,4 +1,4 @@
-package Parte6;
+package parte6;
 
 import java.util.*;
 
@@ -20,16 +20,15 @@ public class Problema04 {
 
 		//Bucle para asignar valores predertimados al tablero
 		for (int i = 0; i < tablero.length; i++) {
-			for (int j = 0; j < tablero.length; j++) {
-				tablero[i][j] = '.';
-			}
+			Arrays.fill(tablero[i], '-');
+			
 		}
 		// Declaramos el escaner
 		Scanner sc = new Scanner(System.in);
 
 		// Preguntamos que pieza es
 		System.out.println("¿Qué pieza quieres que muestre?");
-		pieza = sc.next().charAt(0);
+		pieza = sc.next().toUpperCase().charAt(0);
 
 		// Preguntamos la fila donde está la pieza
 		System.out.println("Dime la fila donde está la pieza");
@@ -69,7 +68,7 @@ public class Problema04 {
 		tablero[posFila][posColumna] = pieza;
 
 		// Bucle para asignar el movimiento de la torre
-		for (int i = 1; i < tablero.length; i++) {
+		for (int i = 0; i < tablero.length; i++) {
 
 			// Iniciamos la comparación
 			if (i != posFila) // Estamos en el moviminto vertical
@@ -112,7 +111,7 @@ public class Problema04 {
 
 
 		// Bucle para asignar el movimiento diagonal de la reina
-		for (int i = 0; i < tablero.length; i++) {
+		for (int i = 1; i < tablero.length; i++) {
 
 			// Iniciamos la comparación
 			if (posFila + i < tablero.length && posColumna + i < tablero.length)// Estamos en la diagonal de arriba a la

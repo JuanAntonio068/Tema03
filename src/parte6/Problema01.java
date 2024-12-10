@@ -1,4 +1,4 @@
-package Parte6;
+package parte6;
 
 import java.util.*;
 
