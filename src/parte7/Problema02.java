@@ -15,9 +15,9 @@ public class Problema02 {
 		// Array donde se va a mostrar la frase con los asteriscos
 		char[] jugada;
 
-		//Variable donde se a a pasar la tabla en formato cadena
+		// Variable donde se a a pasar la tabla en formato cadena
 		String jugadaStr;
-		
+
 		// Variable donde el jugador dos va a introducir la frase
 		String turno;
 
@@ -25,13 +25,12 @@ public class Problema02 {
 		System.out.println("Jugador 1: Escribe una contraseña");
 		contraseña = sc.nextLine();
 
-		//Ajustamos la longitud de la tabla
+		// Ajustamos la longitud de la tabla
 		jugada = new char[contraseña.length()];
-		
-		//Bucle para rellenar la tabla de asteristicos
-		for (int i = 0; i < jugada.length; i++) {
-			jugada[i] = '*';
-		}
+
+		// Llenamos el array con asteriscos
+		Arrays.fill(jugada, '*');
+
 		// Preguntamos al jugador 2 por una contraseña
 		System.out.println("Intenta adivinar la contraseña de " + contraseña.length() + " caracteres");
 		turno = sc.nextLine();
@@ -46,21 +45,25 @@ public class Problema02 {
 				if (contraseña.charAt(i) == turno.charAt(i)) {
 					jugada[i] = turno.charAt(i);
 				}
-				
+
 			}
-			
-			//Pasamos la tabla a cadena y la imprimimos
+
+			// Pasamos la tabla a cadena y la imprimimos
 			jugadaStr = String.valueOf(jugada);
-			
-			//Imprimimos la cadena
+
+			// Imprimimos la cadena
 			System.out.println(jugadaStr);
 
-			//Preguntamos otra vez al usuario por la contraseña
+			// Preguntamos otra vez al usuario por la contraseña
 			System.out.println("Intenta adivinar la contraseña");
 			turno = sc.nextLine();
 		}
-		
-		System.out.println("Felecidades, has ganado el juego, la contraseña era: " + contraseña);
+
+		// Imprimimos el resultado
+		System.out.println("Felicidades, has ganado el juego, la contraseña era: " + contraseña);
+
+		// Cerramos el escaner
+		sc.close();
 	}
 
 }
