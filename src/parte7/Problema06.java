@@ -55,7 +55,7 @@ public class Problema06 {
 
 		// Quitamos los espacios de las frases
 		frase = frase.replace(" ", "");
-		inversaStr = frase.replace(" ", "");
+		inversaStr = inversaStr.replace(" ", "");
 
 		// Iniciamos la comparación
 		palindroma = (frase.equalsIgnoreCase(inversaStr) ? true : false);
