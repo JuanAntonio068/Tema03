@@ -21,9 +21,9 @@ public class Problema10 {
 		// Variable donde se guarda la letra codificada
 		char c;
 
-		//Varable donde se guarda la frase codificada
+		// Varable donde se guarda la frase codificada
 		String fraseCod = "";
-		
+
 		// Declaramos el escaner
 		Scanner sc = new Scanner(System.in);
 
@@ -51,11 +51,15 @@ public class Problema10 {
 
 	private static char codifica(char[] conjunto1, char[] conjunto2, char letra) {
 
+		// Variable para marcar la salida del bucle
+		boolean salida = false;
+
 		// Bucle para ir recorriendo lso conjuntos
-		for (int i = 0; i < conjunto1.length; i++) {
+		for (int i = 0; i < conjunto1.length && !salida; i++) {
 
 			if (letra == conjunto1[i]) { // La letra coincide con el elemento actual
 				letra = conjunto2[i];
+				salida = true;
 			}
 		}
 		return letra;

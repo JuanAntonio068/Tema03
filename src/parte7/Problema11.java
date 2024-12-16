@@ -6,11 +6,11 @@ public class Problema11 {
 
 	public static void main(String[] args) {
 
-		// Array donde se guarda el conjunto 1
-		char conjunto1[] = { 'e', 'i', 'k', 'm', 'p', 'q', 'r', 's', 't', 'u', 'v' };
-
 		// Array donde se guarda el conjunto 2
-		char conjunto2[] = { 'p', 'v', 'i', 'u', 'm', 't', 'e', 'r', 'k', 'q', 's' };
+		char conjunto2[] = { 'e', 'i', 'k', 'm', 'p', 'q', 'r', 's', 't', 'u', 'v' };
+
+		// Array donde se guarda el conjunto 1
+		char conjunto1[] = { 'p', 'v', 'i', 'u', 'm', 't', 'e', 'r', 'k', 'q', 's' };
 
 		// Variable para guardar la frase introducida por el usuario
 		String frase;
@@ -36,7 +36,7 @@ public class Problema11 {
 			letra = frase.charAt(i);
 
 			// Llamamos a la función
-			c = descodifica(conjunto2, conjunto1, letra);
+			c = descodifica(conjunto1, conjunto2, letra);
 
 			// Añadimos la letra codifica a la frase
 			fraseDescod += c;
@@ -51,11 +51,15 @@ public class Problema11 {
 
 	private static char descodifica(char[] conjunto1, char[] conjunto2, char letra) {
 
+		// Variable para marcar la salida del bucle
+		boolean salida = false;
+
 		// Bucle para ir recorriendo lso conjuntos
-		for (int i = 0; i < conjunto1.length; i++) {
+		for (int i = 0; i < conjunto1.length && !salida; i++) {
 
 			if (letra == conjunto1[i]) { // La letra coincide con el elemento actual
 				letra = conjunto2[i];
+				salida = true;
 			}
 		}
 		return letra;
