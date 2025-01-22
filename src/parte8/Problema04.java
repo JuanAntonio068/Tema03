@@ -10,15 +10,12 @@ public class Problema04 {
 		Random rand = new Random();
 
 		// Lista donde se van a guardar los números
-		ArrayList<Integer> numerosAleatorios = new ArrayList<>();
+		TreeSet<Integer> numerosAleatorios = new TreeSet<>();
 
 		// Bucle para ir rellenando la lista
 		for (int i = 20; i > 0; i--) {
 
-			numerosAleatorios.add(rand.nextInt(Integer.MIN_VALUE, 10));
-
-			// Ordenamos la lista
-			Collections.sort(numerosAleatorios);
+			numerosAleatorios.add(rand.nextInt(1, 100));
 		}
 
 		// Imprimimos el rsultado
