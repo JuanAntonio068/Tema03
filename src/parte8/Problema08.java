@@ -27,9 +27,9 @@ public class Problema08 {
 		// Variable para marcar las opurtunidades del usuario
 		int opurtunidades;
 
-		//Variable para salir del bucle
+		// Variable para salir del bucle
 		boolean salir = false;
-		
+
 		// Le mostramos al usuario todas sus opciones
 		System.out.println("1. Registro");
 		System.out.println("2. Login");
@@ -41,7 +41,7 @@ public class Problema08 {
 			// Reseateamos las opurtinadades y la variable salir
 			opurtunidades = 3;
 			salir = false;
-			
+
 			if (eleccion == 1) {// El usuario va a hacer un registro
 
 				// Preguntamos al usuario por el usuario
@@ -63,11 +63,18 @@ public class Problema08 {
 					System.out.println("Inserta la contraseña");
 					contraseña = sc.next();
 
-					if (registro.get(usuarioLogin).equals("")) {// El usuario ha introducio correctamente los
-																		// datos
+					if (registro.get(usuarioLogin) == null) {// El usuario ha introducio el usuario incorrecto
+						System.out.println("El usuario es incorrecto");
+						opurtunidades--;
 
+					} else if (registro.get(usuarioLogin).equals(contraseña)) {// El usuario ha introducido los campos
+																				// correctos
 						System.out.println("Ha accedido al área secreta");
-					} else {// El usuario ha fallado
+						salir = true;
+					}
+
+					else {// El usuario ha fallado la contraseña
+						System.out.println("La contraseña es incorrecta");
 						opurtunidades--;
 					}
 				}
