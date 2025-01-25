@@ -1,16 +1,16 @@
 package parte8;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.TreeSet;
 
-public class Problema05 {
+public class Problema06 {
 
 	public static void main(String[] args) {
-
 		// Declaramos el escaner
 		Scanner sc = new Scanner(System.in);
 
 		// Conjunto donde se van a guardar los nombres
-		LinkedHashSet<String> nombres = new LinkedHashSet<>();
+		TreeSet<String> nombres = new TreeSet<>();
 
 		// Variable donde se va a guardar la respuesta del usuario
 		String respuesta;
@@ -19,7 +19,7 @@ public class Problema05 {
 
 			// Preguntamos al usuario por un nombre
 			System.out.println("Inserta un nombre");
-			respuesta = sc.nextLine();
+			respuesta = sc.nextLine().toUpperCase();
 
 			if (!respuesta.equalsIgnoreCase("fin")) {
 				nombres.add(respuesta);
