@@ -15,14 +15,15 @@ public class Problema05 {
 		// Variable donde se va a guardar la respuesta del usuario
 		String respuesta = "";
 
-		while (!respuesta.equalsIgnoreCase("fin")) {
-
+		
+		do {
 			// Preguntamos al usuario por un nombre
 			System.out.println("Inserta un nombre");
 			respuesta = sc.nextLine();
 			nombres.add(respuesta);
-		}
-
+			
+		}while (!respuesta.equalsIgnoreCase("fin"));
+		
 		// Imprimimos el resultado
 		System.out.println(nombres);
 
